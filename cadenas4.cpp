@@ -17,7 +17,15 @@ int main()
 	resultado:
 	Gerardo_Josue_Portillo
 	*/
+	string cadena;
+	cout << "Digitar la cadena de texto: ";
+	getline(cin,cadena);
 	
+	for(int i = 0; i < cadena.size(); i++){
+		if( cadena[i] == ' ' )
+			cadena[i] = '_';
+	}
+	cout << "Resultado: " << cadena << endl;
 	
 	return 678;
 }
