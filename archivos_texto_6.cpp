@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fstream>
 
 using namespace std;
 
@@ -55,14 +56,66 @@ int main(){
 
 //implementacion de los prototipos de funciones
 void opcion1(){
-	cout << "ha seleccionado la opcion 1" << endl;
+	cout << "Agregar entrada al Diario **********************" << endl;
+	string nueva;
+	cout << "Digitar cadena de texto: ";
+	//cuando cin viene de leer un numero y se desea leer una cadena
+	//se recomienda hacerle flush al cin
+	cin.ignore();
+	getline(cin,nueva);
+	
+	fstream archivo;
+	archivo.open("bitacora.txt",ios::app);
+	
+	if( archivo.is_open() ){
+		archivo << nueva << endl;	//escribir nueva linea en el archivo
+		archivo.close();			//cerrar el archivo
+	}
+	else
+		cout << "No se pudo abrir el archivo para su escritura.";
 }
 
 void opcion2(){
-	cout << "ha seleccionado la opcion 2" << endl;
+	cout << "Mostrar todo el diario *************************" << endl;
+	fstream archivo;
+	string linea;
+	
+	archivo.open("bitacora.txt",ios::in);
+	if( archivo.is_open() ){
+		int n = 1;	//variable para imprimir el numero de linea
+		while( !archivo.eof() ){
+			getline(archivo,linea);
+			cout << n << "\t" << linea << endl;
+			n++;
+		}
+	}
+	else
+		cout << "Archivo no existe o no es accesible" << endl;
+	
 }
 
 void opcion3(){
-	cout << "ha seleccionado la opcion 3" << endl;
+	cout << "Mostrar el diario desde determinada linea *************************" << endl;
+	fstream archivo;
+	string linea;
+	int desde;
+	
+	cout << "Digitar el numero de linea: ";
+	cin >> desde;
+	
+	archivo.open("bitacora.txt",ios::in);
+	if( archivo.is_open() ){
+		int n = 1;	//variable para imprimir el numero de linea
+		while( !archivo.eof() ){
+			getline(archivo,linea);
+			
+			if( n >= desde )
+				cout << n << "\t" << linea << endl;
+			
+			n++;
+		}
+	}
+	else
+		cout << "Archivo no existe o no es accesible" << endl;
 }
 
