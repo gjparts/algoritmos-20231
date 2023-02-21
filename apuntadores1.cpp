@@ -14,7 +14,7 @@ int main(){
 	cout << "el nuevo valor de a es " << a << endl;
 	//que es &a?
 	cout << "La direccion de memoria de a es " << &a << endl;
-		
+	
 	return 975;
 }
 
