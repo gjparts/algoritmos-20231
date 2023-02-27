@@ -5,6 +5,7 @@ using namespace std;
 
 //prototipos de funcion
 void mayusculas(string *cadena);
+void reemplazarEspacios(string *cadena);
 
 int main(){
 	/*APUNTADORES CON STRING
@@ -16,6 +17,9 @@ int main(){
 	*/
 	string x = "Gerardo Josue Portillo";
 	mayusculas(&x);
+	cout << x << endl;
+	
+	reemplazarEspacios(&x);
 	cout << x << endl;
 	
 	return 975;
@@ -30,3 +34,24 @@ void mayusculas(string *cadena){
 	//sobreescribir el valor de la variable apuntada por el valor de la variable local
 	*cadena = copia;
 }
+
+void reemplazarEspacios(string *cadena){
+	/*si pasamos un string por medio de apuntador perdemos acceso a sus miembros*/
+	//sacar copia del valor que viene en el apuntador
+	string copia = *cadena;
+	for( int i = 0; i < copia.size(); i++ )
+	{
+		if( copia[i] == ' ' )
+			copia[i] = '_';
+	}
+	//sobreescribir la variable apuntada
+	*cadena = copia;
+}
+
+
+
+
+
+
+
+
