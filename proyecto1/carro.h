@@ -27,6 +27,33 @@ class Carro{
 		//atributos publicos
 		string marca;
 		string modelo;
+		//constructores
+		//constructor sin parametros
+		Carro(){
+			//metodo/funcion que se ejecuta cuando instanciamos un nuevo Carro
+			//inicializar los atributos de la clase
+			this->marca = "no tiene";
+			this->modelo = "no determinado";
+			this->anio = 0;
+		}
+		//constructor con dos parametros
+		Carro( string marca, string modelo ){
+			this->marca = marca;
+			this->modelo = modelo;
+		}
+		//constructor con tres parametros
+		Carro( string marca, string modelo, int anio ){
+			this->marca = marca;
+			this->modelo = modelo;
+			//el año esta limitado a solo valores positivos
+			if( anio >= 0 )
+				this->anio = anio;
+			else
+				this->anio = 0;
+			//solo para fines educativos vamos a imprimir el
+			//año que tiene el objeto construido aqui
+			cout << "El año del objeto recien construido es: " << this->anio << endl;
+		}
 };	//ojo este punto y coma va al cerrar la clase
 
 #endif
