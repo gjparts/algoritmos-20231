@@ -40,19 +40,31 @@ class Carro{
 		Carro( string marca, string modelo ){
 			this->marca = marca;
 			this->modelo = modelo;
+			this->anio = 0;
 		}
 		//constructor con tres parametros
 		Carro( string marca, string modelo, int anio ){
 			this->marca = marca;
 			this->modelo = modelo;
 			//el año esta limitado a solo valores positivos
-			if( anio >= 0 )
-				this->anio = anio;
-			else
-				this->anio = 0;
+			this->anio = 0;
+			this->setAnio(anio);
+			
 			//solo para fines educativos vamos a imprimir el
 			//año que tiene el objeto construido aqui
-			cout << "El año del objeto recien construido es: " << this->anio << endl;
+			//cout << "El año del objeto recien construido es: " << this->anio << endl;
+		}
+		//metodos (funciones)
+		//metodo set para ponerle un valor al año
+		void setAnio( int anio ){
+			//el año enviado debe ser un numero positivo para ser aceptado
+			if( anio >= 0 )
+				this->anio = anio;
+		}
+		//metodo get para poder leer el valor almancenado en anio
+		int getAnio(){
+			//retornar el valor del atributo anio
+			return this->anio;
 		}
 };	//ojo este punto y coma va al cerrar la clase
 
