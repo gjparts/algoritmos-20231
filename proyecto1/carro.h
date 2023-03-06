@@ -66,6 +66,30 @@ class Carro{
 			//retornar el valor del atributo anio
 			return this->anio;
 		}
+		//metodo encender
+		void encender(){
+			cout << "El carro se ha ecendido" << endl;
+		}
+		//metodo apagar
+		void apagar(){
+			cout << "El carro se ha apagado" << endl;
+		}
+		//metodo imprimir
+		void imprimir(){
+			cout << "**** CARRO ****" << endl;
+			cout << "Marca: " << this->marca << endl;
+			cout << "Modelo: " << this->modelo << endl;
+			cout << "Año: " << this->anio << endl;
+		}
+		//metodo toString, devuelve un resumen del carro pero como una cadena de texto
+		string toString(){
+			string str;
+			str =  "Marca: "+this->marca+", ";
+			str += "Modelo: "+this->modelo+", ";
+			str += "Año: "+to_string( this->anio );
+			
+			return str;			
+		}
 };	//ojo este punto y coma va al cerrar la clase
 
 #endif

@@ -35,6 +35,11 @@ int main(){
 	cout << "El año de c4 es: " << c4->getAnio() << endl;
 	c4->setAnio(-9999);
 	cout << "El año de c4 es: " << c4->getAnio() << endl;
+	c4->imprimir();
+	c4->encender();
+	c4->apagar();
+	
+	cout << c4->toString() << endl;
 	
 	return 234;
 }
