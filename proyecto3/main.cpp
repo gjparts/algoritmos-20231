@@ -37,9 +37,34 @@ int main(){
 	CuentaAhorro *c2 = new CuentaAhorro("14141",p2);
 	cout << "numero de cuenta: " << c2->numero << endl;
 	cout << "cliente: " << c2->cliente << endl;
-	cout << "nombre del cliente: " << c2->cliente->nombre << endl;
-	cout << "identidad del cliente: " << c2->cliente->identidad << endl;
-	cout << "genero del cliente: " << c2->cliente->getGenero() << endl;
+	if( c2->cliente != NULL )
+	{
+		cout << "nombre del cliente: " << c2->cliente->nombre << endl;
+		cout << "identidad del cliente: " << c2->cliente->identidad << endl;
+		cout << "genero del cliente: " << c2->cliente->getGenero() << endl;
+	}
+	
+	CuentaAhorro *c3 = new CuentaAhorro("1234-1234-9", NULL);
+	cout << "Imprimir informacion sobre c3:" << endl;
+	cout << "direccion de memoria del cliente para c3: " << c3->cliente << endl;
+	if( c3->cliente != NULL )
+		cout << "nombre del cliente: " << c3->cliente->nombre << endl;
+	
+	c3->cliente = p1;
+	if( c3->cliente != NULL )
+		cout << "nombre del cliente: " << c3->cliente->nombre << endl;
+	
+	//hacer pruebas de saldos en c3
+	c3->depositar(5000);
+	cout << "saldo de c3: " << c3->getSaldo() << endl;
+	c3->depositar(500);
+	cout << "saldo de c3: " << c3->getSaldo() << endl;
+	c3->depositar(-1000);
+	cout << "saldo de c3: " << c3->getSaldo() << endl;
+	c3->retirar(2000);
+	cout << "saldo de c3: " << c3->getSaldo() << endl;
+	c3->retirar(5000);
+	cout << "saldo de c3: " << c3->getSaldo() << endl;
 	
 	return 890;
 }

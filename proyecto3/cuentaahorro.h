@@ -27,6 +27,21 @@ class CuentaAhorro{
 		this->saldo = 0.00;
 		this->cliente = cliente;
 	}
+	//metodos
+	void depositar(float monto){
+		if( monto >= 0 )	//solo si es un valor positivo sumamos a la cuenta
+			this->saldo += monto;
+	}
+	void retirar(float monto){
+		if( monto >= 0 ) //solo se acepta monto positivos
+		{
+			if( monto <= this->saldo )	//solo se permite retirar del saldo disponible
+				this->saldo -= monto;
+		}
+	}
+	float getSaldo(){
+		return this->saldo;
+	}
 };
 
 #endif
